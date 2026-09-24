@@ -1,32 +1,29 @@
-# 🐦 Kuş Sesi Dedektifi
+# 🐦 Kuş Sesi Dedektifi & Doğa Arşivi
 
-iNaturalist biyoakustik arşivi ile 500.000+ yabani kuş sesi, canlı spektrum ses dalgası ve mini tahmin testi.
+Bu uygulama, yabani kuş seslerini keşfetmek, spektrum dalgalarını incelemek ve kuş türlerini tanımak için geliştirilmiş interaktif bir biyoakustik araçtır.
 
 ## ✨ Özellikler
-- Tamamen istemci taraflı, sunucusuz çalışma.
-- LocalStorage ile veri saklama.
-- Mistral AI tasarım diliyle optimize edilmiş arayüz.
+- **Kuş Sesi Arama:** iNaturalist Bioacoustics veri tabanı ile entegre çalışma kapasitesi.
+- **Canlı Spektrum Visualizer:** HTML5 Canvas ile ses dalgalarının gerçek zamanlı simülasyonu.
+- **Kulak Testi (Mini Quiz):** Duyulan sesin hangi kuşa ait olduğunu tahmin etme oyunu.
+- **Doğa Defterim:** Beğenilen seslerin `localStorage` ile tarayıcıya kaydedilmesi.
+- **Sıfır Backend:** Tamamen istemci tarafında çalışan standalone mimari.
 
-## 🚀 Hızlı Başlangıç
-1. Bu repoyu klonlayın.
-2.  dosyasını tarayıcıda açın.
+## 🚀 Kurulum ve Çalıştırma
+Bu proje statiktir ve herhangi bir kurulum gerektirmez.
+1. Repoyu klonlayın: `git clone https://github.com/melihkarasu/doga-sesleri.git`
+2. `index.html` dosyasını herhangi bir modern tarayıcıda açın.
 
+## 🛠️ Teknolojiler
+- **Frontend:** HTML5, CSS3 (Tailwind CSS), JavaScript (ES6+)
+- **API:** iNaturalist Open Data / Bioacoustics Archive
+- **Visuals:** HTML5 Canvas API
 
-
-## 🛠️ Teknik Detaylar
-- **Styling:** Tailwind CSS
-- **Design System:** Mistral AI Design System
-- **Storage:** Browser LocalStorage API
-- **API Source:** Xeno-Canto / Wildlife Audio API
-
-## 🏆 Krediler & Açık Kaynak Teşekkürleri
-- **[Public APIs](https://github.com/public-apis/public-apis):** Uygulamanın kullandığı açık kaynak API ekosistemi için teşekkürler.
-- **[OpenClaw](https://github.com/openclaw/openclaw):** Proje mimarisi ve otonom deployment.
-- **[Google Gemini](https://github.com/google-gemini):** Kodlama ve istemci tarafı optimizasyonları.
-- **[VoltAgent / awesome-design-md](https://github.com/VoltAgent/awesome-design-md):** Mistral AI Tasarım Sistemi.
-
-## 📜 Lisans
-MIT Lisansı altında açık kaynak olarak paylaşılmıştır.
+## ❤️ Teşekkürler
+Bu projenin geliştirilmesinde şu kaynaklardan faydalanılmıştır:
+- [iNaturalist](https://www.inaturalist.org/) (Veri ve Ses Kayıtları)
+- [Public APIs](https://github.com/public-apis/public-apis)
+- OpenClaw & Google Gemini (Yazılım Mimarisi)
 
 ---
-Daha fazla açık kaynak mikro uygulama için [GitHub profilimi](https://github.com/melihkarasu) ziyaret edebilirsiniz.
+MIT Lisansı ile lisanslanmıştır.
