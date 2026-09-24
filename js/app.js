@@ -1,7 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
-    try {
-        console.log("doga-sesleri initializing...");
-        const SHELF_KEY = '***';
+const SHELF_KEY = '***';
         let currentRecordings = [];
         let activeSoundUrl = null;
         let visualizerAnimId = null;
@@ -65,8 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
           document.getElementById('results-headline').innerText = `"${title}" Kayıtları`;
 
           try {
-            // Direct Client-side Simulation for Standalone
-            const res = { json: async () => ({ results: FEATURED_BIRDS }) };
+            const res = await fetch(`/api/doga/sounds?q=${encodeURIComponent(query)}`);
             const data = await res.json();
 
             if (data && data.results && data.results.length > 0) {
@@ -173,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
               document.getElementById('player-badge-type').innerText = 'Durduruldu';
               document.getElementById('btn-master-play').innerText = '▶';
               showToast('Tarayıcı ses oynatmayı engelledi, lütfen tekrar tıklayın.');
-            
+            });
           }
 
           startVisualizer();
@@ -191,7 +187,7 @@ window.addEventListener('DOMContentLoaded', () => {
               playPromise.catch(err => {
                 console.warn('Ses oynatma hatası:', err);
                 showToast('Ses başlatılamadı.');
-              
+              });
             }
             btn.innerText = '⏸';
             document.getElementById('player-badge-type').innerText = 'Çalıyor';
@@ -328,7 +324,7 @@ window.addEventListener('DOMContentLoaded', () => {
             playPromise.catch(err => {
               console.warn('Quiz ses oynatma hatası:', err);
               showToast('Tarayıcı ses oynatmayı engelledi, lütfen butona tekrar tıklayın.');
-            
+            });
           }
           startVisualizer();
           showToast('🎵 Quiz sesi çalıyor...');
@@ -376,7 +372,7 @@ window.addEventListener('DOMContentLoaded', () => {
             photo,
             soundUrl,
             date: new Date().toLocaleDateString('tr-TR')
-          
+          });
 
           localStorage.setItem(SHELF_KEY, JSON.stringify(shelf));
           renderNatureShelf();
@@ -430,16 +426,12 @@ window.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => toast.classList.add('hidden'), 3500);
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-          fetchBirdSounds('Luscinia megarhynchos', 'Bülbül');
-          renderNatureShelf();
-          startBirdQuiz();
         
 
-    } catch (error) {
-        console.error("doga-sesleri Critical Error:", error);
-        document.body.innerHTML += `<div style="position:fixed;top:0;left:0;width:100%;background:red;color:white;text-align:center;z-index:9999;font-family:sans-serif;padding:10px;">
-            Critical JS Error in doga-sesleri: ${error.message}
-        </div>`;
-    }
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Doga Sesleri initialized');
+    fetchBirdSounds('Luscinia megarhynchos', 'Bülbül');
+    renderNatureShelf();
+    startBirdQuiz();
 });
